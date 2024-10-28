@@ -36,13 +36,23 @@ package agh.ics.oop;
 import agh.ics.oop.model.MoveDirection;
 import agh.ics.oop.model.Vector2d;
 
+import java.util.List;
+
 public class World {
     public static void main(String[] args) {
-        Vector2d position1 = new Vector2d(1,2);
-        System.out.println(position1);
-        Vector2d position2 = new Vector2d(-2,1);
-        System.out.println(position2);
-        System.out.println(position1.add(position2));
+//        Animal kacperon=new Animal();
+//        System.out.println(kacperon);
+
+        List<MoveDirection> directions = OptionsParser.fun(args);
+        List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
+        Simulation simulation = new Simulation(positions, directions);
+        simulation.run();
+//        Vector2d position1 = new Vector2d(1,2);
+//        System.out.println(position1);
+//        Vector2d position2 = new Vector2d(-2,1);
+//        System.out.println(position2);
+//        System.out.println(position1.add(position2));
+
 //        System.out.println("system wystartował");
 //        MoveDirection[] args2 = OptionsParser.fun(args);
 //        run(args2);
