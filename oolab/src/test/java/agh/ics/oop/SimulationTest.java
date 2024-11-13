@@ -1,11 +1,8 @@
 package agh.ics.oop;
 
-import agh.ics.oop.model.MapDirection;
-import agh.ics.oop.model.MoveDirection;
-import agh.ics.oop.model.Vector2d;
+import agh.ics.oop.model.*;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,8 +25,9 @@ class SimulationTest {
         );
         Vector2d expectedPositionAnimal1 = new Vector2d(2, 4);
         Vector2d expectedPositionAnimal2 = new Vector2d(0, 1);
+        RectangularMap map = new RectangularMap(5,5) ;
         // When
-        Simulation simulation = new Simulation(initialPositions, directions);
+        Simulation simulation = new Simulation(initialPositions, directions,map);
         simulation.run();
         // Then
         List<Animal> animals = simulation.getAnimals();
@@ -48,8 +46,9 @@ class SimulationTest {
                 MoveDirection.BACKWARD,
                 MoveDirection.FORWARD
         );
+        RectangularMap map = new RectangularMap(5,5) ;
         // When
-        Simulation simulation = new Simulation(initialPositions, directions);
+        Simulation simulation = new Simulation(initialPositions, directions, map);
         simulation.run();
         // Then
         List<Animal> animals = simulation.getAnimals();
@@ -62,7 +61,7 @@ class SimulationTest {
         // Given
         String input = "f b r l f f r r f f f f f f f f";
         String[] args = input.split(" ");
-
+        RectangularMap map = new RectangularMap(5,5) ;
         // Expected
         List<MoveDirection> expectedDirections = Arrays.asList(
                 MoveDirection.FORWARD, MoveDirection.BACKWARD, MoveDirection.RIGHT, MoveDirection.LEFT,
@@ -82,12 +81,12 @@ class SimulationTest {
                 new Vector2d(3, 4)   //1 animal
         );
 
-        Simulation simulation = new Simulation(positions, directions);
+        Simulation simulation = new Simulation(positions, directions,map);
 
         simulation.run();
 
-        Vector2d expectedPositionAnimal1 = new Vector2d(3, 0);
-        Vector2d expectedPositionAnimal2 = new Vector2d(2, 4);
+        Vector2d expectedPositionAnimal1 = new Vector2d(2, 0);
+        Vector2d expectedPositionAnimal2 = new Vector2d(3, 4);
 
 
         List<Animal> animals = simulation.getAnimals();
