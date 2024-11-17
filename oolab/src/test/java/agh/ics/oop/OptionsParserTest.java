@@ -15,7 +15,7 @@ class OptionsParserTest {
         //given
         String[] args = {"b"};
         //when
-        List<MoveDirection> parsed = OptionsParser.fun(args);
+        List<MoveDirection> parsed = OptionsParser.parse(args);
         List<MoveDirection> expected = new ArrayList<>();
         expected.add(MoveDirection.BACKWARD);
 
@@ -27,7 +27,7 @@ class OptionsParserTest {
         //given
         String[] args = {"b","f","l"};
         //when
-        List<MoveDirection> parsed= OptionsParser.fun(args);
+        List<MoveDirection> parsed= OptionsParser.parse(args);
         List<MoveDirection> expected = new ArrayList<>();
         expected.add(MoveDirection.BACKWARD);
         expected.add(MoveDirection.FORWARD);
@@ -40,7 +40,7 @@ class OptionsParserTest {
         //given
         String[] args = {"b","a","c","l"};
         //when
-        List<MoveDirection> parsed = OptionsParser.fun(args);
+        List<MoveDirection> parsed = OptionsParser.parse(args);
         List<MoveDirection> expected = new ArrayList<>();
         expected.add(MoveDirection.BACKWARD);
         expected.add(MoveDirection.LEFT);
@@ -52,7 +52,7 @@ class OptionsParserTest {
         //given
         String[] args = {"a","c"};
         //when
-        List<MoveDirection> parsed = OptionsParser.fun(args);
+        List<MoveDirection> parsed = OptionsParser.parse(args);
         List<MoveDirection> expected = new ArrayList<>();
         //then
         assertEquals(expected, parsed);

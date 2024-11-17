@@ -26,7 +26,7 @@ public class OptionsParser {
 //            }
 //        }
 //        return Arrays.copyOfRange(moves, 0, vart);
-    public static List<MoveDirection> fun(String[] args) {
+    public static List<MoveDirection> parse(String[] args) {
         List<MoveDirection> moves = new ArrayList<>();
         for (String arg : args) {
             switch (arg) {

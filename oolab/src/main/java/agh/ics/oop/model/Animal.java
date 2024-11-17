@@ -1,9 +1,8 @@
 package agh.ics.oop.model;
 
-public class Animal {
+public class Animal implements WorldElement {
 
     private MapDirection direction = MapDirection.NORTH;
-
     private Vector2d position;
 
     private final Vector2d lowerBound = new Vector2d(0, 0);
@@ -27,7 +26,6 @@ public class Animal {
 
     @Override
     public String toString() {
-        //return "Animal [direction=" + direction + ", position=" + position + "]";
         return this.direction.toString();
     }
 
@@ -35,17 +33,17 @@ public class Animal {
         return this.position.equals(position);
     }
 
-    public void move (MoveDirection direction, RectangularMap validator) {
+    public void move (MoveDirection direction, WorldMap map) {
         switch (direction){
             case LEFT -> this.direction = this.direction.previous();
             case RIGHT -> this.direction = this.direction.next();
             case FORWARD -> {
                 Vector2d newPosition = this.position.add(this.direction.toUnitVector());
-                if (validator.canMoveTo(newPosition)) this.position = newPosition;
+                if (map.canMoveTo(newPosition)) this.position = newPosition;
             }
             case BACKWARD -> {
                 Vector2d newPosition = this.position.subtract(this.direction.toUnitVector());
-                if (validator.canMoveTo(newPosition)) this.position = newPosition;
+                if (map.canMoveTo(newPosition)) this.position = newPosition;
             }
         }
         this.position = this.position.upperRight(lowerBound);
