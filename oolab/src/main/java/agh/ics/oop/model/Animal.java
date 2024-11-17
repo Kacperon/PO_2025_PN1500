@@ -5,8 +5,6 @@ public class Animal implements WorldElement {
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position;
 
-    private final Vector2d lowerBound = new Vector2d(0, 0);
-    private final Vector2d upperBound = new Vector2d(4, 4);
 
     public Vector2d getPosition() {
         return this.position;
@@ -33,7 +31,7 @@ public class Animal implements WorldElement {
         return this.position.equals(position);
     }
 
-    public void move (MoveDirection direction, WorldMap map) {
+    public void move (MoveDirection direction, AbstractWorldMap map) {
         switch (direction){
             case LEFT -> this.direction = this.direction.previous();
             case RIGHT -> this.direction = this.direction.next();
@@ -46,8 +44,6 @@ public class Animal implements WorldElement {
                 if (map.canMoveTo(newPosition)) this.position = newPosition;
             }
         }
-        this.position = this.position.upperRight(lowerBound);
-        this.position = this.position.lowerLeft(upperBound);
     }
 
 

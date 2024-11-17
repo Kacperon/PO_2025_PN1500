@@ -4,6 +4,8 @@ import agh.ics.oop.model.util.MapVisualizer;
 import java.util.*;
 
 public abstract class AbstractWorldMap implements WorldMap {
+    public Vector2d getLowerLeft;
+    public Vector2d getUpperRight;
     protected Vector2d lowerLeft = new Vector2d(Integer.MIN_VALUE, Integer.MIN_VALUE);
     protected Vector2d upperRight = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
     protected final Map<Vector2d, Animal> animals = new HashMap<>();
@@ -45,5 +47,13 @@ public abstract class AbstractWorldMap implements WorldMap {
     @Override
     public List<WorldElement> getElements() {
         return new ArrayList<>(animals.values());
+    }
+    @Override
+    public Vector2d getLowerLeft(){
+        return lowerLeft;
+    }
+    @Override
+    public Vector2d getUpperRight(){
+        return upperRight;
     }
 }

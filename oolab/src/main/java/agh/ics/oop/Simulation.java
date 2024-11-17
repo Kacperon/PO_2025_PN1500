@@ -18,6 +18,7 @@ public class Simulation {
         return listAnimals;
     }
     public Simulation(List<Vector2d> listPosition,List<MoveDirection> listDirection,WorldMap map) {
+
         this.listDirection = listDirection;
         this.map = map;
         for (Vector2d position : listPosition) {

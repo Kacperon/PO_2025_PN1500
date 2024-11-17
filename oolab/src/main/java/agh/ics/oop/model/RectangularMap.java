@@ -16,4 +16,10 @@ public class RectangularMap extends AbstractWorldMap{
     public String toString() {
         return visualizer.draw(lowerLeft, upperRight);
     }
+    public Vector2d getLowerLeft() {
+        return lowerLeft;
+    }
+    public Vector2d getUpperRight() {
+        return upperRight;
+    }
 }

@@ -73,4 +73,10 @@ public GrassField(int grassNumber) {
         elements.addAll(grasses.values());
         return elements;
     }
+    public Vector2d getUpperRight() {
+        return upperRight;
+    }
+    public Vector2d getLowerLeft() {
+        return lowerLeft;
+    }
 }
