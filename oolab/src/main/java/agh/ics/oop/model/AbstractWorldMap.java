@@ -13,7 +13,7 @@ public abstract class AbstractWorldMap implements WorldMap {
 
     @Override
     public boolean canMoveTo(Vector2d position) {
-        return position.follows(lowerLeft) && position.precedes(upperRight) && !(objectAt(position) instanceof Animal);
+        return !(objectAt(position) instanceof Animal);
     }
 
     @Override
