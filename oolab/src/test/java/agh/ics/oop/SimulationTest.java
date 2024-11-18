@@ -71,7 +71,7 @@ class SimulationTest {
         );
 
         // When
-        List<MoveDirection> directions = OptionsParser.fun(args);
+        List<MoveDirection> directions = OptionsParser.parse(args);
 
         assertEquals(expectedDirections, directions);
 

@@ -33,21 +33,24 @@
 
 package agh.ics.oop;
 
-import agh.ics.oop.model.MoveDirection;
-import agh.ics.oop.model.RectangularMap;
-import agh.ics.oop.model.Vector2d;
+import agh.ics.oop.model.*;
 
 import java.util.List;
 
-public class World {
-    public static void main(String[] args) {
+import static agh.ics.oop.OptionsParser.parse;
 
-        RectangularMap map = new RectangularMap(5,5) ;
-        List<MoveDirection> directions = OptionsParser.fun(args);
+public class World {
+    public static void main(String[] args){
+        System.out.println("system wystartowal");
+
+        List<MoveDirection> directions = parse(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        Simulation simulation = new Simulation(positions, directions,map);
+        WorldMap map = new GrassField(10);
+        //WorldMap map = new RectangularMap(5, 5);
+        Simulation simulation = new Simulation( positions,directions, map);
         simulation.run();
 
+        System.out.println("system zakonczyl dzialanie");
     }
     public static void run(MoveDirection[] args) {
         for (MoveDirection move : args) {
