@@ -43,24 +43,21 @@ public class World {
     public static void main(String[] args){
         System.out.println("system wystartowal");
 
-        List<MoveDirection> directions = parse(args);
-        List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        WorldMap map = new GrassField(10);
-        //WorldMap map = new RectangularMap(5, 5);
-        Simulation simulation = new Simulation( positions,directions, map);
-        simulation.run();
+        try {
+            List<MoveDirection> directions = parse(args);
+            List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
+            AbstractWorldMap map = new GrassField(10);
+            // AbstractWorldMap map = new RectangularMap(5, 5);
+            map.addObservers(new ConsoleMapDisplay());
+            Simulation simulation = new Simulation( positions,directions, map);
+            simulation.run();
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+            return;
+        }
 
         System.out.println("system zakonczyl dzialanie");
     }
-    public static void run(MoveDirection[] args) {
-        for (MoveDirection move : args) {
-            switch (move) {
-                case LEFT -> System.out.println("idzie w lewo");
-                case RIGHT -> System.out.println("idzie w prawo");
-                case FORWARD -> System.out.println("idzie do przodu");
-                case BACKWARD -> System.out.println("idzie do tyłu");
-            }
-        }
-    }
+
 }
 

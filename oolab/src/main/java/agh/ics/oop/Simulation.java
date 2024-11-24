@@ -33,8 +33,6 @@ public class Simulation {
         for (int i = 0; i < listDirection.size(); i++) {
             int animal_i = i% listAnimals.size();
             map.move(listAnimals.get(animal_i),listDirection.get(i));
-            System.out.println(map);
-
         }
     }
 
