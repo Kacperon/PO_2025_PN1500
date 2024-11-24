@@ -38,24 +38,11 @@ class OptionsParserTest {
     @Test
     void OptionsParserCheck3(){
         //given
-        String[] args = {"b","a","c","l"};
+        String[] args = {"a"};
         //when
-        List<MoveDirection> parsed = OptionsParser.parse(args);
-        List<MoveDirection> expected = new ArrayList<>();
-        expected.add(MoveDirection.BACKWARD);
-        expected.add(MoveDirection.LEFT);
+
         //then
-        assertEquals(expected, parsed);
-    }
-    @Test
-    void OptionsParserCheck4(){
-        //given
-        String[] args = {"a","c"};
-        //when
-        List<MoveDirection> parsed = OptionsParser.parse(args);
-        List<MoveDirection> expected = new ArrayList<>();
-        //then
-        assertEquals(expected, parsed);
+        assertThrows(IllegalArgumentException.class, ()->OptionsParser.parse(args));
     }
 
 
