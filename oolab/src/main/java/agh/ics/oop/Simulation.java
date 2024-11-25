@@ -5,7 +5,7 @@ import agh.ics.oop.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Simulation {
+public class Simulation implements Runnable {
 
     private  final List<MoveDirection> listDirection;
     private final List<Animal> listAnimals= new ArrayList<>();
@@ -14,6 +14,7 @@ public class Simulation {
     public List<Animal> getAnimals() {
         return listAnimals;
     }
+
     public Simulation(List<Vector2d> listPosition,List<MoveDirection> listDirection,WorldMap map) {
 
         this.listDirection = listDirection;
