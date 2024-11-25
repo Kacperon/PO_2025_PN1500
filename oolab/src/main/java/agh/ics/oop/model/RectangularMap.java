@@ -17,14 +17,4 @@ public class RectangularMap extends AbstractWorldMap{
         return super.canMoveTo(position) && position.follows(lowerLeft) && position.precedes(upperRight);
     }
 
-    @Override
-    public String toString() {
-        return visualizer.draw(lowerLeft, upperRight);
-    }
-    public Vector2d getLowerLeft() {
-        return lowerLeft;
-    }
-    public Vector2d getUpperRight() {
-        return upperRight;
-    }
 }
