@@ -42,13 +42,13 @@ import static agh.ics.oop.OptionsParser.parse;
 public class World {
     public static void main(String[] args){
         System.out.println("system wystartowal");
-
+        ConsoleMapDisplay obs = new ConsoleMapDisplay();
         try {
             List<MoveDirection> directions = parse(args);
             List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
             AbstractWorldMap map = new GrassField(10);
             // AbstractWorldMap map = new RectangularMap(5, 5);
-            map.addObservers(new ConsoleMapDisplay());
+            map.addObservers(obs);
             Simulation simulation = new Simulation( positions,directions, map);
             simulation.run();
         } catch (IllegalArgumentException e) {
