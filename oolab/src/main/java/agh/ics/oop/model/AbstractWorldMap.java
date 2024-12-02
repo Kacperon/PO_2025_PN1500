@@ -4,7 +4,7 @@ import agh.ics.oop.model.util.MapVisualizer;
 import java.util.*;
 
 public abstract class AbstractWorldMap implements WorldMap {
-
+    protected final int id = this.hashCode();
     protected Vector2d lowerLeft = new Vector2d(Integer.MIN_VALUE, Integer.MIN_VALUE);
     protected Vector2d upperRight = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
     protected final Map<Vector2d, Animal> animals = new HashMap<>();
@@ -75,6 +75,13 @@ public abstract class AbstractWorldMap implements WorldMap {
     public String toString(){
         return visualizer.draw(getCurrentBounds().lowerLeft(),getCurrentBounds().upperRight());
     }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+
 
 
 }

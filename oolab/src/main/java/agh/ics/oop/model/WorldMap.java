@@ -43,4 +43,6 @@ public interface WorldMap extends MoveValidator {
 
     String toString();
 
+    int getId();
+
 }
