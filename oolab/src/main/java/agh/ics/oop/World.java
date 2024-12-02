@@ -44,6 +44,7 @@ public class World {
     public static void main(String[] args){
         System.out.println("system wystartowal");
         ConsoleMapDisplay obs = new ConsoleMapDisplay();
+
         ConsoleMapDisplay obs2 = new ConsoleMapDisplay();
         try {
             List<MoveDirection> directions = parse(args);
@@ -58,6 +59,7 @@ public class World {
             //engine.runSync();
             engine.runAsync();
             //engine.runAsyncInThreadPool();
+
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
             return;
