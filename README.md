@@ -1,5 +1,5 @@
 # PO_2025_PN1500_FELIKS
-Kacper Feliks
+Kacper
 
 gr.17 15:00
 
